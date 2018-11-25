@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context="niveau.top.judo.jtn.Parameters">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:background="@color/colorAccent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/osaekomi"
+            android:textSize="@dimen/sizeTitle"
+            android:textColor="@color/colorPrimaryDark"
+            android:gravity="center_horizontal"
+            android:layout_margin="@dimen/sizeMarginChrono"
+            />
+
+        <RadioGroup
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            >
+
+
+            <RadioButton
+                android:id="@+id/dix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dix"
+                android:onClick="onRadioButtonSolClicked"
+                android:textSize="@dimen/sizeNumber"
+                android:textColor="@color/colorPrimaryDark"
+                android:checked="true"
+                />
+            <RadioButton
+                android:id="@+id/quinze"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/quinze"
+                android:onClick="onRadioButtonSolClicked"
+                android:textSize="@dimen/sizeNumber"
+                android:textColor="@color/colorPrimaryDark"
+                />
+            <RadioButton
+                android:id="@+id/vingt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/vingt"
+                android:onClick="onRadioButtonSolClicked"
+                android:textSize="@dimen/sizeNumber"
+                android:textColor="@color/colorPrimaryDark"
+                />
+        </RadioGroup>
+
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:background="@null"
+            android:text="@string/valider"
+            android:textSize="@dimen/sizeText"
+            android:layout_margin="@dimen/sizeChrono"
+            android:layout_gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:onClick="returnToMain"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:background="@color/colorAccent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/combat"
+            android:textSize="@dimen/sizeTitle"
+            android:textColor="@color/colorPrimaryDark"
+            android:gravity="center_horizontal"
+            android:layout_margin="@dimen/sizeMarginChrono"
+            />
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/groupe_general"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/trente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:onClick="onRadioButtonGeneralOnclick"
+                android:text="@string/trente"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/sizeNumber" />
+
+            <RadioButton
+                android:id="@+id/quarante"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonGeneralOnclick"
+                android:text="@string/quarante"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/sizeNumber" />
+
+            <RadioButton
+                android:id="@+id/cinquante"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonGeneralOnclick"
+                android:text="@string/cinquante"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/sizeNumber" />
+
+            <RadioButton
+                android:id="@+id/minute"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:onClick="onRadioButtonGeneralOnclick"
+                android:text="@string/minute"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/sizeNumber" />
+
+            <RadioButton
+                android:id="@+id/minute_dix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonGeneralOnclick"
+                android:text="@string/minute_dix"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/sizeNumber" />
+
+            <RadioButton
+                android:id="@+id/minute_vingt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonGeneralOnclick"
+                android:text="@string/minute_vingt"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/sizeNumber" />
+
+            <RadioButton
+                android:id="@+id/minute_trente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonGeneralOnclick"
+                android:text="@string/minute_trente"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/sizeNumber" />
+
+            <RadioButton
+                android:id="@+id/minute_quanrante"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonGeneralOnclick"
+                android:text="@string/minute_quarante"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/sizeNumber" />
+
+            <RadioButton
+                android:id="@+id/minute_cinquante"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonGeneralOnclick"
+                android:text="@string/minute_cinquante"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/sizeNumber" />
+
+            <RadioButton
+                android:id="@+id/minutes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonGeneralOnclick"
+                android:text="@string/minutes"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/sizeNumber" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+</LinearLayout>

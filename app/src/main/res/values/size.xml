@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="sizeChrono">100sp</dimen>
+    <dimen name="sizeNumber">25sp</dimen>
+    <dimen name="sizeTitle">43sp</dimen>
+    <dimen name="sizeMargin">11dp</dimen>
+    <dimen name="sizeMarginChrono">30dp</dimen>
+    <dimen name="sizeText">28sp</dimen>
+    <dimen name="sizeScore">80sp</dimen>
+    <dimen name="spaceTitle">200sp</dimen>
+</resources>

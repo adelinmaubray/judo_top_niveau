@@ -110,13 +110,13 @@ public class MainActivity extends AppCompatActivity {
             if (score[3] != 1 && score[7] != 1) {
                 score[0]++;
                 // Jouer le son
-                soundPool.play(marcheArret, 1, 1, 1, 0, 1);
+                //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
             }
         } else{
             if (score[0] > 0) {
                 score[0]--;
                 // Jouer le son
-                soundPool.play(marcheArret, 1, 1, 1, 0, 1);
+                //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
             }
         }
         // Changer le texte
@@ -128,13 +128,13 @@ public class MainActivity extends AppCompatActivity {
             if (score[3] != 1 && score[7] != 1) {
                 score[4]++;
                 // Jouer le son
-                soundPool.play(marcheArret, 1, 1, 1, 0, 1);
+                //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
             }
         } else {
             if(score[4] > 0){
                 score[4]--;
                 // Jouer le son
-                soundPool.play(marcheArret, 1, 1, 1, 0, 1);
+                //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
             }
         }
         // Changer le texte
@@ -146,13 +146,13 @@ public class MainActivity extends AppCompatActivity {
             if (score[3] != 1 && score[7] != 1) {
                 score[1]++;
                 // Jouer le son
-                soundPool.play(marcheArret, 1, 1, 1, 0, 1);
+                //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
             }
         } else {
             if (score[1] > 0){
                 score[1]--;
                 // Jouer le son
-                soundPool.play(marcheArret, 1, 1, 1, 0, 1);
+                //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
             }
         }
         // Changer le texte
@@ -164,13 +164,13 @@ public class MainActivity extends AppCompatActivity {
             if (score[3] != 1 && score[7] != 1) {
                 score[5]++;
                 // Jouer le son
-                soundPool.play(marcheArret, 1, 1, 1, 0, 1);
+                //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
             }
         } else {
             if (score[5] > 0){
                 score[5]--;
                 // Jouer le son
-                soundPool.play(marcheArret, 1, 1, 1, 0, 1);
+                //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
             }
         }
         // Changer le texte
@@ -199,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
                     resetBtn[0].setVisibility(View.VISIBLE);
                 } else {
                     // Jouer le son
-                    soundPool.play(marcheArret, 1, 1, 1, 0, 1);
+                    //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
                     scoreBtn[2].setText(Integer.toString(score[2]));
                 }
             }
@@ -208,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
                 score[2]--;
 
                 // Jouer le son
-                soundPool.play(marcheArret, 1, 1, 1, 0, 1);
+                //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
                 // Changer le texte
                 scoreBtn[2].setText(Integer.toString(score[2]));
             }
@@ -237,7 +237,7 @@ public class MainActivity extends AppCompatActivity {
                     resetBtn[0].setVisibility(View.VISIBLE);
                 } else {
                     // Jouer le son
-                    soundPool.play(marcheArret, 1, 1, 1, 0, 1);
+                    //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
                     scoreBtn[6].setText(Integer.toString(score[6]));
                 }
             }
@@ -246,7 +246,7 @@ public class MainActivity extends AppCompatActivity {
                 score[6]--;
 
                 // Jouer le son
-                soundPool.play(marcheArret, 1, 1, 1, 0, 1);
+                //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
                 // Changer le texte
                 scoreBtn[6].setText(Integer.toString(score[6]));
             }
@@ -298,7 +298,7 @@ public class MainActivity extends AppCompatActivity {
         // On ne peut arrêter que si Sol ne fonctionne pas
         if (!setSol) {
             // Jouer le son
-            soundPool.play(marcheArret, 1, 1, 1, 0, 1);
+            //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
 
             // Si le décompte ne tourne pas
             if (setGeneral == false) {
@@ -360,7 +360,7 @@ public class MainActivity extends AppCompatActivity {
         // On ne peut lancer ce décompte que si l'autre a déjà été lancé une fois
         if (setGeneral) {
             // Jouer le son
-            soundPool.play(marcheArret, 1, 1, 1, 0, 1);
+            //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
 
             // Si le décompte ne tourne pas
             if (setSol == false) {
@@ -432,7 +432,7 @@ public class MainActivity extends AppCompatActivity {
         // On ne peut reset le chrono que s'il ne fonctionne pas
         if (!setGeneral) {
             // Jouer le son
-            soundPool.play(changementTemps, 1, 1, 1, 0, 1);
+            //soundPool.play(changementTemps, 1, 1, 1, 0, 1);
 
             // Si les décompteurs existent, on les arrête
             if (setSol) {
@@ -478,7 +478,7 @@ public class MainActivity extends AppCompatActivity {
         // On ne peut remettre à zéro que si le chrono ne fonctionne pas
         if (!setSol) {
             // Jouer le son
-            soundPool.play(changementTemps, 1, 1, 1, 0, 1);
+            //soundPool.play(changementTemps, 1, 1, 1, 0, 1);
 
             // Si les décompteurs existent, on les arrête
             if (setSol == true) {

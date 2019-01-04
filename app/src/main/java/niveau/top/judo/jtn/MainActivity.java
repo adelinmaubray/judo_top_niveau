@@ -17,10 +17,10 @@ import java.text.DecimalFormat;
 public class MainActivity extends AppCompatActivity {
 
     // Variables qui renseignent si les décompteurs fonctionnent ou pas
-    private boolean setSol, setGeneral, plusOuMoins;
+    private boolean setSolRouge, setSolBlanc, setGeneral, plusOuMoins;
     
     // Les deux décompteurs (objets Java)
-    private CountDownTimer chronoSol, chronoGeneral;
+    private CountDownTimer chronoSolRouge, chronoSolBlanc, chronoGeneral;
     
     // Les deux décompteurs (Boutons) et les RESET
     Button chronoBtn[];
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton plusOuMoinsButton;
     
     // Nombres dont on a besoin, dont des nombres de référence (Init)
-    public static long sol, general, solInit, generalInit;
+    public static long solBlanc, solRouge, general, solInit, generalInit;
     
     // Nombre de minutes et de secondes (pour l'affichage)
     int min, sec;
@@ -52,12 +52,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Récupèrer les Boutons
-        chronoBtn = new Button[2];
+        chronoBtn = new Button[3];
         chronoBtn[0] = findViewById(R.id.chrono_general);
-        chronoBtn[1] = findViewById(R.id.chrono_sol);
-        resetBtn = new Button[2];
+        chronoBtn[1] = findViewById(R.id.chrono_sol_rouge);
+        chronoBtn[2] = findViewById(R.id.chrono_sol_blanc);
+        resetBtn = new Button[3];
         resetBtn[0] = findViewById(R.id.reset_general);
-        resetBtn[1] = findViewById(R.id.reset_sol);
+        resetBtn[1] = findViewById(R.id.reset_sol_rouge);
+        resetBtn[2]=findViewById(R.id.reset_sol_blanc);
 
         scoreBtn = new Button[8];
         scoreBtn[0] = findViewById(R.id.koka_blanc);
@@ -84,14 +86,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Initialiser variables : on n'utile pas le décompteur
-        setSol = false;
+        setSolBlanc = false;
+        setSolRouge = false;
         setGeneral = false;
         plusOuMoins = true;
 
         // Initialisations
         solInit = 10000;
         generalInit = 60000;
-        sol = 10000;
+        solBlanc = 10000;
+        solRouge = 10000;
         general = 60000;
 
         // Affichage initial

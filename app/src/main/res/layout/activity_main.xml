@@ -29,6 +29,7 @@
             android:gravity="center"
             android:text="@string/ippon"
             android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
             android:textSize="@dimen/sizeTitle"
             android:layout_alignParentStart="true"/>
 
@@ -40,6 +41,7 @@
             android:text="@string/wazaari"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/sizeTitle"
+            android:textStyle="bold"
             android:layout_margin="@dimen/sizeMargin"
             android:layout_alignParentEnd="true"/>
 
@@ -162,6 +164,7 @@
             android:text="@string/yuko"
             android:textSize="@dimen/sizeTitle"
             android:layout_margin="@dimen/sizeMargin"
+            android:textStyle="bold"
             android:textColor="@color/colorPrimaryDark"
             android:layout_alignParentStart="true"/>
 
@@ -170,9 +173,10 @@
             android:layout_height="wrap_content"
             android:layout_width="@dimen/spaceTitle"
             android:gravity="center"
-            android:text="@string/koka"
             android:textSize="@dimen/sizeTitle"
             android:layout_margin="@dimen/sizeMargin"
+            android:text="@string/koka"
+            android:textStyle="bold"
             android:textColor="@color/colorPrimaryDark"
             android:layout_alignParentEnd="true"
             />

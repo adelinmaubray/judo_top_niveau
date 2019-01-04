@@ -301,7 +301,7 @@ public class MainActivity extends AppCompatActivity {
             //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
 
             // Si le décompte ne tourne pas
-            if (setGeneral == false) {
+            if (!setGeneral) {
                 // On crée le décompte
                 chronoGeneral = new CountDownTimer(general, 1000) {
 
@@ -320,7 +320,7 @@ public class MainActivity extends AppCompatActivity {
                         chronoBtn[0].setTextColor(getResources().getColor(R.color.colorPrimaryDark));
 
                         //Jouer le son que si l'autre chrono ne fonctionne pas
-                        if (setSol == false) {
+                        if (!setSol) {
                             soundPool.play(clocheFin, 1, 1, 1, 0, 1);
                         }
 
@@ -363,7 +363,7 @@ public class MainActivity extends AppCompatActivity {
             //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
 
             // Si le décompte ne tourne pas
-            if (setSol == false) {
+            if (!setSol) {
                 // On crée le décompte
                 chronoSol = new CountDownTimer(sol, 1000) {
 
@@ -521,7 +521,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void goToParam(View view) {
         // Jouer le son
-        soundPool.play(changementTemps, 1, 1, 1, 0, 1);
+        //soundPool.play(changementTemps, 1, 1, 1, 0, 1);
         startActivityForResult(new Intent(this, Parameters.class),1000);
     }
 

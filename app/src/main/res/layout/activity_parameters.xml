@@ -21,7 +21,7 @@
             android:textSize="@dimen/sizeTitle"
             android:textColor="@color/colorPrimaryDark"
             android:gravity="center_horizontal"
-            android:layout_margin="@dimen/sizeMarginChrono"
+            android:layout_margin="@dimen/sizeMargin"
             />
 
         <RadioGroup
@@ -90,7 +90,7 @@
             android:textSize="@dimen/sizeTitle"
             android:textColor="@color/colorPrimaryDark"
             android:gravity="center_horizontal"
-            android:layout_margin="@dimen/sizeMarginChrono"
+            android:layout_margin="@dimen/sizeMargin"
             />
 
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
@@ -104,11 +104,10 @@
                 android:id="@+id/trente"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
                 android:onClick="onRadioButtonGeneralOnclick"
                 android:text="@string/trente"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/sizeNumber" />
+                android:textSize="@dimen/sizeNumber"/>
 
             <RadioButton
                 android:id="@+id/quarante"

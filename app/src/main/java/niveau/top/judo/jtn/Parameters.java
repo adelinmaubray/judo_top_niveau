@@ -106,7 +106,7 @@ public class Parameters extends AppCompatActivity {
     // Changer les valeurs quand on clique sur le boutons de temps
     public void changeValue(boolean test, long nbr){
         // Jouer le son
-        soundPool.play(changementTemps, 1, 1, 1, 0, 1);
+        //soundPool.play(changementTemps, 1, 1, 1, 0, 1);
         if (test) {
             MainActivity.general = nbr;
             MainActivity.generalInit = nbr;
@@ -118,7 +118,7 @@ public class Parameters extends AppCompatActivity {
 
     public void returnToMain(View view) {
         // Jouer le son
-        soundPool.play(changementTemps, 1, 1, 1, 0, 1);
+        //soundPool.play(changementTemps, 1, 1, 1, 0, 1);
 
         //Permet d'afficher les nouvelles valeur sur MainActivity
         setResult(1);

@@ -1,23 +1,22 @@
 <resources>
     <string name="app_name">Judo Top Niveau</string>
 
-    <string name="koka">Koka</string>
-    <string name="yuko">Yuko</string>
-    <string name="wazaari">Waza-ari</string>
-    <string name="ippon">Ippon</string>
+    <string name="koka">K</string>
+    <string name="yuko">Y</string>
+    <string name="wazaari">W</string>
+    <string name="ippon">I</string>
     <string name="score_init">0</string>
 
     <string name="java_ippon">IPPON</string>
-    <string name="java_time">MATE</string>
+    <string name="java_time">SOREMADE</string>
 
-
-    <string name="reset">Remettre à zéro</string>
 
     <string name="osaekomi"><u>Osaekomi</u></string>
     <string name="combat"><u>Combat</u></string>
 
     <string name="valider">Valider</string>
 
+    <string name="vingt_cinq">25 secondes</string>
     <string name="vingt">20 secondes</string>
     <string name="quinze">15 secondes</string>
     <string name="dix">10 secondes</string>

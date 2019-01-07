@@ -129,80 +129,80 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void koka_blanc(View view) {
-        if (plusOuMoins) {
-            if (score[IPPON_BLANC] != 1 && score[IPPON_ROUGE] != 1) {
+        if (score[IPPON_BLANC] != 1 && score[IPPON_ROUGE] != 1) {
+            if (plusOuMoins) {
                 score[KOKA_BLANC]++;
                 // Play sound
                 //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
+            } else {
+                if (score[KOKA_BLANC] > 0) {
+                    score[KOKA_BLANC]--;
+                    // Play sound
+                    //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
+                }
             }
-        } else {
-            if (score[KOKA_BLANC] > 0) {
-                score[KOKA_BLANC]--;
-                // Play sound
-                //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
-            }
+            // Change text
+            scoreBtn[KOKA_BLANC].setText(Integer.toString(score[KOKA_BLANC]));
         }
-        // Change text
-        scoreBtn[KOKA_BLANC].setText(Integer.toString(score[KOKA_BLANC]));
     }
 
     public void koka_rouge(View view) {
-        if (plusOuMoins) {
-            if (score[IPPON_BLANC] != 1 && score[IPPON_ROUGE] != 1) {
+        if (score[IPPON_BLANC] != 1 && score[IPPON_ROUGE] != 1) {
+            if (plusOuMoins) {
                 score[KOKA_ROUGE]++;
                 // Play sound
                 //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
+            } else {
+                if (score[KOKA_ROUGE] > 0) {
+                    score[KOKA_ROUGE]--;
+                    // Play sound
+                    //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
+                }
             }
-        } else {
-            if (score[KOKA_ROUGE] > 0) {
-                score[KOKA_ROUGE]--;
-                // Play sound
-                //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
-            }
+            // Change text
+            scoreBtn[KOKA_ROUGE].setText(Integer.toString(score[KOKA_ROUGE]));
         }
-        // Change text
-        scoreBtn[KOKA_ROUGE].setText(Integer.toString(score[KOKA_ROUGE]));
     }
 
     public void yuko_blanc(View view) {
-        if (plusOuMoins) {
-            if (score[IPPON_BLANC] != 1 && score[IPPON_ROUGE] != 1) {
+        if (score[IPPON_BLANC] != 1 && score[IPPON_ROUGE] != 1) {
+            if (plusOuMoins) {
                 score[YUKO_BLANC]++;
                 // Play sound
                 //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
+            } else {
+                if (score[YUKO_BLANC] > 0) {
+                    score[YUKO_BLANC]--;
+                    // Play sound
+                    //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
+                }
             }
-        } else {
-            if (score[YUKO_BLANC] > 0) {
-                score[YUKO_BLANC]--;
-                // Play sound
-                //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
-            }
+            // Change text
+            scoreBtn[YUKO_BLANC].setText(Integer.toString(score[YUKO_BLANC]));
         }
-        // Change text
-        scoreBtn[YUKO_BLANC].setText(Integer.toString(score[YUKO_BLANC]));
     }
 
     public void yuko_rouge(View view) {
-        if (plusOuMoins) {
-            if (score[IPPON_BLANC] != 1 && score[IPPON_ROUGE] != 1) {
+        if (score[IPPON_BLANC] != 1 && score[IPPON_ROUGE] != 1) {
+            if (plusOuMoins) {
                 score[YUKO_ROUGE]++;
                 // Play sound
                 //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
+            } else {
+                if (score[YUKO_ROUGE] > 0) {
+                    score[YUKO_ROUGE]--;
+                    // Play sound
+                    //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
+                }
             }
-        } else {
-            if (score[YUKO_ROUGE] > 0) {
-                score[YUKO_ROUGE]--;
-                // Play sound
-                //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
-            }
+            // Change text
+            scoreBtn[YUKO_ROUGE].setText(Integer.toString(score[YUKO_ROUGE]));
         }
-        // Change text
-        scoreBtn[YUKO_ROUGE].setText(Integer.toString(score[YUKO_ROUGE]));
     }
 
     public void wazaari_blanc(View view) {
-        if (plusOuMoins) {
-            if (score[IPPON_BLANC] != 1 && score[IPPON_ROUGE] != 1) {
+        if (score[IPPON_BLANC] != 1 && score[IPPON_ROUGE] != 1) {
+            if (plusOuMoins) {
                 score[WAZAARI_BLANC]++;
                 if (score[WAZAARI_BLANC] == 2) {
                     // Play sound
@@ -213,6 +213,7 @@ public class MainActivity extends AppCompatActivity {
                     // Stop counter
                     if (setGeneral) {
                         chronoGeneral.cancel();
+                        setGeneral = false;
                     }
 
                     chronoBtn[MAIN].setText(getResources().getString(R.string.java_ippon));
@@ -227,24 +228,24 @@ public class MainActivity extends AppCompatActivity {
                     solBlanc -= ADVANTAGE_WAZAARI;
                     setText(WHITE);
                 }
-            }
-        } else {
-            if (score[WAZAARI_BLANC] > 0) {
-                score[WAZAARI_BLANC]--;
+            } else {
+                if (score[WAZAARI_BLANC] > 0) {
+                    score[WAZAARI_BLANC]--;
 
-                // Play sound
-                //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
-                
-                // Change text
-                scoreBtn[WAZAARI_BLANC].setText(Integer.toString(score[WAZAARI_BLANC]));
-                resetSolBlanc(view);
+                    // Play sound
+                    //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
+
+                    // Change text
+                    scoreBtn[WAZAARI_BLANC].setText(Integer.toString(score[WAZAARI_BLANC]));
+                    resetSolBlanc(view);
+                }
             }
         }
     }
 
     public void wazaari_rouge(View view) {
-        if (plusOuMoins) {
-            if (score[IPPON_BLANC] != 1 && score[IPPON_ROUGE] != 1) {
+        if (score[IPPON_BLANC] != 1 && score[IPPON_ROUGE] != 1) {
+            if (plusOuMoins) {
                 score[WAZAARI_ROUGE]++;
                 if (score[WAZAARI_ROUGE] == 2) {
                     // Play sound
@@ -255,6 +256,7 @@ public class MainActivity extends AppCompatActivity {
                     // Stop counter
                     if (setGeneral) {
                         chronoGeneral.cancel();
+                        setGeneral = false;
                     }
 
                     chronoBtn[MAIN].setText(getResources().getString(R.string.java_ippon));
@@ -269,17 +271,17 @@ public class MainActivity extends AppCompatActivity {
                     solRouge -= ADVANTAGE_WAZAARI;
                     setText(RED);
                 }
-            }
-        } else {
-            if (score[WAZAARI_ROUGE] > 0) {
-                score[WAZAARI_ROUGE]--;
+            } else {
+                if (score[WAZAARI_ROUGE] > 0) {
+                    score[WAZAARI_ROUGE]--;
 
-                // Play sound
-                //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
-                
-                // Change text
-                scoreBtn[WAZAARI_ROUGE].setText(Integer.toString(score[WAZAARI_ROUGE]));
-                resetSolRouge(view);
+                    // Play sound
+                    //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
+
+                    // Change text
+                    scoreBtn[WAZAARI_ROUGE].setText(Integer.toString(score[WAZAARI_ROUGE]));
+                    resetSolRouge(view);
+                }
             }
         }
     }
@@ -294,6 +296,7 @@ public class MainActivity extends AppCompatActivity {
             // Stop counter
             if (setGeneral) {
                 chronoGeneral.cancel();
+                setGeneral = false;
             }
 
             chronoBtn[MAIN].setText(getResources().getString(R.string.java_ippon));
@@ -314,6 +317,7 @@ public class MainActivity extends AppCompatActivity {
             // Stop counter
             if (setGeneral) {
                 chronoGeneral.cancel();
+                setGeneral = false;
             }
 
             chronoBtn[MAIN].setText(getResources().getString(R.string.java_ippon));

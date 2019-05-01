@@ -22,21 +22,19 @@ public class MainActivity extends AppCompatActivity {
     // Counter objects
     private CountDownTimer chronoSolRouge, chronoSolBlanc, chronoGeneral;
 
+    // Time and initTime
+    public static long solBlanc, solRouge, general, solInitRouge, solInitBlanc, solInit, generalInit;
     // Counter and Reset Buttons
-    Button chronoBtn[];
-    Button scoreBtn[];
-    ImageButton resetBtn[];
+    Button[] chronoBtn;
+    Button[] scoreBtn;
     ImageButton paramBtn;
     ImageButton plusOuMoinsBtn;
-
-    // Time and initTime
-    public static long solBlanc, solRouge, general, solInit, generalInit;
+    ImageButton[] resetBtn;
 
     // Number in min and sec
     int min, sec;
-
     // Score Table
-    int score[] = new int[8];
+    int[] score = new int[8];
     static final int KOKA_BLANC = 0;
     static final int YUKO_BLANC = 1;
     static final int WAZAARI_BLANC = 2;
@@ -111,6 +109,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Initialisation
         solInit = SOL_INIT_VALUE;
+        solInitRouge = solInit;
+        solInitBlanc = solInit;
         generalInit = GENERAL_INIT_VALUE;
         solBlanc = SOL_INIT_VALUE;
         solRouge = SOL_INIT_VALUE;
@@ -226,6 +226,7 @@ public class MainActivity extends AppCompatActivity {
                     //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
                     scoreBtn[WAZAARI_BLANC].setText(Integer.toString(score[WAZAARI_BLANC]));
                     solBlanc -= ADVANTAGE_WAZAARI;
+                    solInitBlanc -= ADVANTAGE_WAZAARI;
                     setText(WHITE);
                 }
             } else {
@@ -237,6 +238,7 @@ public class MainActivity extends AppCompatActivity {
 
                     // Change text
                     scoreBtn[WAZAARI_BLANC].setText(Integer.toString(score[WAZAARI_BLANC]));
+                    solInitBlanc += ADVANTAGE_WAZAARI;
                     resetSolBlanc(view);
                 }
             }
@@ -269,6 +271,7 @@ public class MainActivity extends AppCompatActivity {
                     //soundPool.play(marcheArret, 1, 1, 1, 0, 1);
                     scoreBtn[WAZAARI_ROUGE].setText(Integer.toString(score[WAZAARI_ROUGE]));
                     solRouge -= ADVANTAGE_WAZAARI;
+                    solInitRouge -= ADVANTAGE_WAZAARI;
                     setText(RED);
                 }
             } else {
@@ -280,6 +283,7 @@ public class MainActivity extends AppCompatActivity {
 
                     // Change text
                     scoreBtn[WAZAARI_ROUGE].setText(Integer.toString(score[WAZAARI_ROUGE]));
+                    solInitRouge += ADVANTAGE_WAZAARI;
                     resetSolRouge(view);
                 }
             }
@@ -357,7 +361,7 @@ public class MainActivity extends AppCompatActivity {
                         chronoBtn[MAIN].setTextColor(getResources().getColor(R.color.colorPrimaryDark));
 
                         // Play sound only if other counters are not running
-                        if (!setSolBlanc || !setSolRouge) {
+                        if (!setSolBlanc && !setSolRouge) {
                             soundPool.play(clocheFin, 1, 1, 1, 0, 1);
                         }
 
@@ -567,6 +571,8 @@ public class MainActivity extends AppCompatActivity {
             general = generalInit;
             solRouge = solInit;
             solBlanc = solInit;
+            solInitRouge = solInit;
+            solInitBlanc = solInit;
 
             // Update display
             setText(MAIN);
@@ -602,7 +608,7 @@ public class MainActivity extends AppCompatActivity {
             //soundPool.play(changementTemps, 1, 1, 1, 0, 1);
 
             // Take INIT values
-            solRouge = solInit;
+            solRouge = solInitRouge;
 
             // Update display and color
             setText(RED);
@@ -621,7 +627,7 @@ public class MainActivity extends AppCompatActivity {
             //soundPool.play(changementTemps, 1, 1, 1, 0, 1);
 
             // Take INIT values
-            solBlanc = solInit;
+            solBlanc = solInitBlanc;
 
             // Update display et la couleur
             setText(WHITE);

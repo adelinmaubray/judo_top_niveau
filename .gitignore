@@ -1,5 +1,8 @@
 app/build/
+app/app.iml
 .idea
 .gradle
 
 CountDownTimer.zip
+Judo Top Niveau.iml
+local.properties

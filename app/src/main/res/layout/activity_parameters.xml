@@ -17,13 +17,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/osaekomi"
-            android:textSize="@dimen/sizeTitle"
+            android:textSize="@dimen/sizeTitleParam"
             android:textColor="@color/colorPrimaryDark"
             android:gravity="center_horizontal"
             android:layout_margin="@dimen/margin"/>
 
         <RadioGroup
-            xmlns:android="http://schemas.android.com/apk/res/android"
             android:orientation="vertical"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
@@ -77,8 +76,8 @@
             android:layout_width="wrap_content"
             android:background="@null"
             android:text="@string/valider"
+            android:layout_margin="@dimen/margin"
             android:textSize="@dimen/sizeText"
-            android:layout_margin="@dimen/sizeChrono"
             android:layout_gravity="center"
             android:textColor="@color/colorPrimary"
             android:onClick="returnToMain"/>
@@ -96,12 +95,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/combat"
-            android:textSize="@dimen/sizeTitle"
+            android:textSize="@dimen/sizeTitleParam"
             android:textColor="@color/colorPrimaryDark"
             android:gravity="center_horizontal"
             android:layout_margin="@dimen/margin"/>
 
-        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        <RadioGroup
             android:id="@+id/groupe_general"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

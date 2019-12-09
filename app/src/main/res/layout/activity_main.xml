@@ -8,10 +8,11 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
         <GridLayout
             android:layout_width="0dp"
@@ -22,108 +23,116 @@
             android:rowCount="3">
 
             <TextView
-                android:layout_row="0"
-                android:layout_column="0"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:layout_gravity="center"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_gravity="center"
 
-                android:text="@string/ippon"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/sizeTitle"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_row="0"
-                android:layout_column="1"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:layout_gravity="center"
-
-                android:text="@string/wazaari"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/sizeTitle"
-                android:textStyle="bold" />
+                    android:gravity="center"
+                    android:text="@string/ippon"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sizeTitle"
+                    android:textStyle="bold" />
 
             <TextView
-                android:layout_row="0"
-                android:layout_column="2"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:layout_gravity="center"
+                    android:layout_row="0"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_gravity="center"
 
-                android:text="@string/yuko"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/sizeTitle"
-                android:textStyle="bold" />
+                    android:gravity="center"
+                    android:text="@string/wazaari"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sizeTitle"
+                    android:textStyle="bold" />
 
             <TextView
-                android:layout_row="0"
-                android:layout_column="3"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:layout_gravity="center"
+                    android:layout_row="0"
+                    android:layout_column="2"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_gravity="center"
 
-                android:text="@string/koka"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/sizeTitle"
-                android:textStyle="bold" />
+                    android:gravity="center"
+                    android:text="@string/yuko"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sizeTitle"
+                    android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/ippon_rouge"
-                android:onClick="ippon_rouge"
+            <TextView
+                    android:layout_row="0"
+                    android:layout_column="3"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_gravity="center"
 
-                android:layout_row="1"
-                android:layout_column="0"
-                android:layout_rowWeight="2"
-                android:layout_columnWeight="1"
-
-                android:background="@null"
-                android:text="@string/score_init"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/sizeScore" />
-
-            <Button
-                android:id="@+id/wazaari_rouge"
-                android:onClick="wazaari_rouge"
-
-                android:layout_row="1"
-                android:layout_column="1"
-                android:layout_rowWeight="2"
-                android:layout_columnWeight="1"
-
-                android:background="@null"
-                android:text="@string/score_init"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/sizeScore" />
+                    android:gravity="center"
+                    android:text="@string/koka"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sizeTitle"
+                    android:textStyle="bold" />
 
             <Button
-                android:id="@+id/yuko_rouge"
-                android:onClick="yuko_rouge"
+                    android:id="@+id/ippon_rouge"
+                    android:onClick="ippon_rouge"
 
-                android:layout_row="1"
-                android:layout_column="2"
-                android:layout_rowWeight="2"
-                android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_column="0"
+                    android:layout_rowWeight="2"
+                    android:layout_columnWeight="1"
 
-                android:background="@null"
-                android:text="@string/score_init"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/sizeScore" />
+                    android:gravity="center"
+                    android:background="@null"
+                    android:text="@string/score_init"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sizeScore" />
 
             <Button
-                android:id="@+id/koka_rouge"
-                android:onClick="koka_rouge"
+                    android:id="@+id/wazaari_rouge"
+                    android:onClick="wazaari_rouge"
 
-                android:layout_row="1"
-                android:layout_column="3"
-                android:layout_rowWeight="2"
-                android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_column="1"
+                    android:layout_rowWeight="2"
+                    android:layout_columnWeight="1"
 
-                android:background="@null"
-                android:text="@string/score_init"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/sizeScore" />
+                    android:gravity="center"
+                    android:background="@null"
+                    android:text="@string/score_init"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sizeScore" />
+
+            <Button
+                    android:id="@+id/yuko_rouge"
+                    android:onClick="yuko_rouge"
+
+                    android:layout_row="1"
+                    android:layout_column="2"
+                    android:layout_rowWeight="2"
+                    android:layout_columnWeight="1"
+
+                    android:gravity="center"
+                    android:background="@null"
+                    android:text="@string/score_init"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sizeScore" />
+
+            <Button
+                    android:id="@+id/koka_rouge"
+                    android:onClick="koka_rouge"
+
+                    android:layout_row="1"
+                    android:layout_column="3"
+                    android:layout_rowWeight="2"
+                    android:layout_columnWeight="1"
+
+                    android:gravity="center"
+                    android:background="@null"
+                    android:text="@string/score_init"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sizeScore" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -173,111 +182,119 @@
             android:alignmentMode="alignBounds">
 
             <TextView
-                android:layout_row="0"
-                android:layout_column="0"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:layout_gravity="center"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_gravity="center"
 
-                android:text="@string/ippon"
-                android:textSize="@dimen/sizeTitle"
-                android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold" />
+                    android:gravity="center"
+                    android:text="@string/ippon"
+                    android:textSize="@dimen/sizeTitle"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
 
             <TextView
-                android:layout_row="0"
-                android:layout_column="1"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:layout_gravity="center"
+                    android:layout_row="0"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_gravity="center"
 
-                android:text="@string/wazaari"
-                android:textSize="@dimen/sizeTitle"
-                android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold"
+                    android:gravity="center"
+                    android:text="@string/wazaari"
+                    android:textSize="@dimen/sizeTitle"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
                 />
 
             <TextView
-                android:layout_row="0"
-                android:layout_column="2"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:layout_gravity="center"
+                    android:layout_row="0"
+                    android:layout_column="2"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_gravity="center"
 
-                android:text="@string/yuko"
-                android:textSize="@dimen/sizeTitle"
-                android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold"
+                    android:gravity="center"
+                    android:text="@string/yuko"
+                    android:textSize="@dimen/sizeTitle"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
                 />
 
             <TextView
-                android:layout_row="0"
-                android:layout_column="3"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:layout_gravity="center"
+                    android:layout_row="0"
+                    android:layout_column="3"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_gravity="center"
 
-                android:text="@string/koka"
-                android:textSize="@dimen/sizeTitle"
-                android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold"
+                    android:gravity="center"
+                    android:text="@string/koka"
+                    android:textSize="@dimen/sizeTitle"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
                 />
 
             <Button
-                android:id="@+id/ippon_blanc"
-                android:onClick="ippon_blanc"
+                    android:id="@+id/ippon_blanc"
+                    android:onClick="ippon_blanc"
 
-                android:layout_row="1"
-                android:layout_column="0"
-                android:layout_rowWeight="2"
-                android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_column="0"
+                    android:layout_rowWeight="2"
+                    android:layout_columnWeight="1"
 
-                android:background="@null"
-                android:text="@string/score_init"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/sizeScore" />
-
-            <Button
-                android:id="@+id/wazaari_blanc"
-                android:onClick="wazaari_blanc"
-
-                android:layout_row="1"
-                android:layout_column="1"
-                android:layout_rowWeight="2"
-                android:layout_columnWeight="1"
-
-                android:background="@null"
-                android:text="@string/score_init"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/sizeScore" />
+                    android:gravity="center"
+                    android:background="@null"
+                    android:text="@string/score_init"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sizeScore" />
 
             <Button
-                android:id="@+id/yuko_blanc"
-                android:onClick="yuko_blanc"
+                    android:id="@+id/wazaari_blanc"
+                    android:onClick="wazaari_blanc"
 
-                android:layout_row="1"
-                android:layout_column="2"
-                android:layout_rowWeight="2"
-                android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_column="1"
+                    android:layout_rowWeight="2"
+                    android:layout_columnWeight="1"
 
-                android:background="@null"
-                android:text="@string/score_init"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/sizeScore" />
+                    android:gravity="center"
+                    android:background="@null"
+                    android:text="@string/score_init"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sizeScore" />
 
             <Button
-                android:id="@+id/koka_blanc"
-                android:onClick="koka_blanc"
+                    android:id="@+id/yuko_blanc"
+                    android:onClick="yuko_blanc"
 
-                android:layout_row="1"
-                android:layout_column="3"
-                android:layout_rowWeight="2"
-                android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_column="2"
+                    android:layout_rowWeight="2"
+                    android:layout_columnWeight="1"
 
-                android:background="@null"
-                android:text="@string/score_init"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/sizeScore" />
+                    android:gravity="center"
+                    android:background="@null"
+                    android:text="@string/score_init"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sizeScore" />
+
+            <Button
+                    android:id="@+id/koka_blanc"
+                    android:onClick="koka_blanc"
+
+                    android:layout_row="1"
+                    android:layout_column="3"
+                    android:layout_rowWeight="2"
+                    android:layout_columnWeight="1"
+
+                    android:gravity="center"
+                    android:background="@null"
+                    android:text="@string/score_init"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sizeScore" />
 
             <RelativeLayout
                 android:layout_width="match_parent"

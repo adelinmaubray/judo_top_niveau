@@ -6,6 +6,7 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -15,55 +16,59 @@ import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Counter running variables
-    private boolean setSolRouge, setSolBlanc, setGeneral;
+    static final int RESULT_CODE = 1;
+    private static final int KOKA_BLANC = 0;
+    private static final int YUKO_BLANC = 1;
     private boolean plusOuMoins;
-
-    // Counter objects
-    private CountDownTimer chronoSolRouge, chronoSolBlanc, chronoGeneral;
-
-    // Time and initTime
-    public static long solBlanc, solRouge, general, solInitRouge, solInitBlanc, solInit, generalInit;
-    // Counter and Reset Buttons
-    Button[] chronoBtn;
-    Button[] scoreBtn;
-    ImageButton paramBtn;
-    ImageButton plusOuMoinsBtn;
-    ImageButton[] resetBtn;
-
-    // Number in min and sec
-    int min, sec;
-    // Score Table
-    int[] score = new int[8];
-    static final int KOKA_BLANC = 0;
-    static final int YUKO_BLANC = 1;
-    static final int WAZAARI_BLANC = 2;
-    static final int IPPON_BLANC = 3;
-    static final int KOKA_ROUGE = 4;
-    static final int YUKO_ROUGE = 5;
-    static final int WAZAARI_ROUGE = 6;
-    static final int IPPON_ROUGE = 7;
-
-    // Display Format (0:00)
-    DecimalFormat format = new DecimalFormat("#00");
-
-    // Sound classes
-    SoundPool soundPool;
-    int clocheFin, changementTemps, marcheArret;
-
+    private static final int WAZAARI_BLANC = 2;
+    private static final int IPPON_BLANC = 3;
+    private static final int KOKA_ROUGE = 4;
+    private static final int YUKO_ROUGE = 5;
+    private static final int WAZAARI_ROUGE = 6;
+    private static final int IPPON_ROUGE = 7;
     // Constants
-    static final int MAIN = 0;
-    static final int RED = 1;
-    static final int WHITE = 2;
+    private static final int MAIN = 0;
+    private static final int RED = 1;
+    private static final int WHITE = 2;
+    private static final int REQUEST_CODE = 1000;
+    private static final int GENERAL_INIT_VALUE = 60000;
+    private static final int SOL_INIT_VALUE = 10000;
+    private static final int ADVANTAGE_WAZAARI = 5000;
+    // Time and initTime
+    static long solBlanc;
+    static long solRouge;
+    static long general;
+    static long solInit;
+    static long generalInit;
+    private static long solInitRouge;
+    private static long solInitBlanc;
+    // Counter running variables
+    private boolean setSolRouge;
+    private boolean setSolBlanc;
+    private boolean setGeneral;
+    // Counter objects
+    private CountDownTimer chronoSolRouge;
+    private CountDownTimer chronoSolBlanc;
+    private CountDownTimer chronoGeneral;
+    // Counter and Reset Buttons
+    private Button[] chronoBtn;
+    private Button[] scoreBtn;
+    private ImageButton paramBtn;
+    // private int changementTemps;
+    // private int marcheArret;
+    private ImageButton plusOuMoinsBtn;
+    private ImageButton[] resetBtn;
+    // Number in min and sec
+    private int min;
+    private int sec;
+    // Score Table
+    private int[] score = new int[8];
+    // Display Format (0:00)
+    private DecimalFormat format = new DecimalFormat("#00");
+    // Sound classes
+    private SoundPool soundPool;
+    private int clocheFin;
 
-    public static final int REQUEST_CODE = 1000;
-    public static final int RESULT_CODE = 1;
-
-    static final int GENERAL_INIT_VALUE = 60000;
-    static final int SOL_INIT_VALUE = 10000;
-    static final int ADVANTAGE_WAZAARI = 5000;
-
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -124,10 +129,11 @@ public class MainActivity extends AppCompatActivity {
         // Sound initialisation
         soundPool = new SoundPool(20, AudioManager.STREAM_MUSIC, 0);
         clocheFin = soundPool.load(this, R.raw.ring, 1);
-        changementTemps = soundPool.load(this, R.raw.time, 1);
-        marcheArret = soundPool.load(this, R.raw.marche, 1);
+        // changementTemps = soundPool.load(this, R.raw.time, 1);
+        // marcheArret = soundPool.load(this, R.raw.marche, 1);
     }
 
+    @SuppressLint("SetTextI18n")
     public void koka_blanc(View view) {
         if (score[IPPON_BLANC] != 1 && score[IPPON_ROUGE] != 1) {
             if (plusOuMoins) {
@@ -146,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     public void koka_rouge(View view) {
         if (score[IPPON_BLANC] != 1 && score[IPPON_ROUGE] != 1) {
             if (plusOuMoins) {
@@ -164,6 +171,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     public void yuko_blanc(View view) {
         if (score[IPPON_BLANC] != 1 && score[IPPON_ROUGE] != 1) {
             if (plusOuMoins) {
@@ -182,6 +190,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     public void yuko_rouge(View view) {
         if (score[IPPON_BLANC] != 1 && score[IPPON_ROUGE] != 1) {
             if (plusOuMoins) {
@@ -200,6 +209,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     public void wazaari_blanc(View view) {
         if (score[IPPON_BLANC] != 1 && score[IPPON_ROUGE] != 1) {
             if (plusOuMoins) {
@@ -217,8 +227,8 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     chronoBtn[MAIN].setText(getResources().getString(R.string.java_ippon));
-                    chronoBtn[MAIN].setBackgroundColor(getResources().getColor(R.color.white));
-                    chronoBtn[MAIN].setTextColor(getResources().getColor(R.color.colorAccent));
+                    chronoBtn[MAIN].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
+                    chronoBtn[MAIN].setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccent));
 
                     resetBtn[MAIN].setVisibility(View.VISIBLE);
                 } else {
@@ -245,6 +255,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     public void wazaari_rouge(View view) {
         if (score[IPPON_BLANC] != 1 && score[IPPON_ROUGE] != 1) {
             if (plusOuMoins) {
@@ -262,8 +273,8 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     chronoBtn[MAIN].setText(getResources().getString(R.string.java_ippon));
-                    chronoBtn[MAIN].setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-                    chronoBtn[MAIN].setTextColor(getResources().getColor(R.color.colorAccent));
+                    chronoBtn[MAIN].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary));
+                    chronoBtn[MAIN].setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccent));
 
                     resetBtn[MAIN].setVisibility(View.VISIBLE);
                 } else {
@@ -290,6 +301,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     public void ippon_blanc(View view) {
         if (score[IPPON_BLANC] != 1 && score[IPPON_ROUGE] != 1) {
             // Play sound
@@ -304,13 +316,14 @@ public class MainActivity extends AppCompatActivity {
             }
 
             chronoBtn[MAIN].setText(getResources().getString(R.string.java_ippon));
-            chronoBtn[MAIN].setBackgroundColor(getResources().getColor(R.color.white));
-            chronoBtn[MAIN].setTextColor(getResources().getColor(R.color.colorAccent));
+            chronoBtn[MAIN].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
+            chronoBtn[MAIN].setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccent));
 
             resetBtn[MAIN].setVisibility(View.VISIBLE);
         }
     }
 
+    @SuppressLint("SetTextI18n")
     public void ippon_rouge(View view) {
         if (score[IPPON_BLANC] != 1 && score[IPPON_ROUGE] != 1) {
             // Play sound
@@ -325,8 +338,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
             chronoBtn[MAIN].setText(getResources().getString(R.string.java_ippon));
-            chronoBtn[MAIN].setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-            chronoBtn[MAIN].setTextColor(getResources().getColor(R.color.colorAccent));
+            chronoBtn[MAIN].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary));
+            chronoBtn[MAIN].setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccent));
 
             resetBtn[MAIN].setVisibility(View.VISIBLE);
         }
@@ -342,7 +355,7 @@ public class MainActivity extends AppCompatActivity {
             // If counter not running
             if (!setGeneral) {
                 // Counter creation
-                chronoGeneral = new CountDownTimer(general, 1000) {
+                chronoGeneral = new CountDownTimer(general, 500) {
 
                     // Uptate every seconde
                     public void onTick(long millisUntilFinished) {
@@ -358,20 +371,24 @@ public class MainActivity extends AppCompatActivity {
 
                         // Update display
                         chronoBtn[MAIN].setText(getResources().getString(R.string.java_time));
-                        chronoBtn[MAIN].setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                        chronoBtn[MAIN].setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimaryDark));
+
+                        setGeneral = false;
+                        resetBtn[MAIN].setVisibility(View.VISIBLE);
 
                         // Play sound only if other counters are not running
                         if (!setSolBlanc && !setSolRouge) {
                             soundPool.play(clocheFin, 1, 1, 1, 0, 1);
+                            // Allow to stop SOL chrono
+                            setGeneral = true;
                         }
 
-                        setGeneral = false;
-                        resetBtn[MAIN].setVisibility(View.VISIBLE);
+
                     }
                 }.start();
                 // Counter is running
                 setGeneral = true;
-                chronoBtn[MAIN].setTextColor(getResources().getColor(R.color.brown));
+                chronoBtn[MAIN].setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.brown));
 
                 // Hide Reset
                 resetBtn[MAIN].setVisibility(View.GONE);
@@ -385,7 +402,7 @@ public class MainActivity extends AppCompatActivity {
                 setGeneral = false;
 
                 // Update display
-                chronoBtn[MAIN].setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                chronoBtn[MAIN].setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimaryDark));
 
                 // Display Reset
                 resetBtn[MAIN].setVisibility(View.VISIBLE);
@@ -404,7 +421,7 @@ public class MainActivity extends AppCompatActivity {
             // If counter not running
             if (!setSolRouge) {
                 // Counter creation
-                chronoSolRouge = new CountDownTimer(solRouge, 1000) {
+                chronoSolRouge = new CountDownTimer(solRouge, 500) {
 
                     // Update every second
                     public void onTick(long millisUntilFinished) {
@@ -414,6 +431,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     // When counter is over
+                    @SuppressLint("SetTextI18n")
                     public void onFinish() {
                         // Update score
                         if (score[WAZAARI_ROUGE] == 1) {
@@ -426,11 +444,11 @@ public class MainActivity extends AppCompatActivity {
 
                         // Update display
                         chronoBtn[RED].setText(getResources().getString(R.string.java_time));
-                        chronoBtn[RED].setTextColor(getResources().getColor(R.color.colorAccent));
+                        chronoBtn[RED].setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccent));
 
                         chronoBtn[MAIN].setText(getResources().getString(R.string.java_ippon));
-                        chronoBtn[MAIN].setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-                        chronoBtn[MAIN].setTextColor(getResources().getColor(R.color.colorAccent));
+                        chronoBtn[MAIN].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary));
+                        chronoBtn[MAIN].setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccent));
 
                         //Play sound
                         soundPool.play(clocheFin, 1, 1, 1, 0, 1);
@@ -446,7 +464,7 @@ public class MainActivity extends AppCompatActivity {
                 }.start();
                 // Counter is running
                 setSolRouge = true;
-                chronoBtn[RED].setTextColor(getResources().getColor(R.color.brown));
+                chronoBtn[RED].setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.brown));
 
                 // Hide Reset SOL
                 resetBtn[MAIN].setVisibility(View.GONE);
@@ -458,7 +476,7 @@ public class MainActivity extends AppCompatActivity {
                 setSolRouge = false;
 
                 // Update display
-                chronoBtn[RED].setTextColor(getResources().getColor(R.color.colorAccent));
+                chronoBtn[RED].setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccent));
 
                 // Display Reset
                 resetBtn[RED].setVisibility(View.VISIBLE);
@@ -477,7 +495,7 @@ public class MainActivity extends AppCompatActivity {
             // If counter not running
             if (!setSolBlanc) {
                 // Counter creation
-                chronoSolBlanc = new CountDownTimer(solBlanc, 1000) {
+                chronoSolBlanc = new CountDownTimer(solBlanc, 500) {
 
                     // Update every second
                     public void onTick(long millisUntilFinished) {
@@ -487,6 +505,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     // When counter is over
+                    @SuppressLint("SetTextI18n")
                     public void onFinish() {
                         // Update score
                         if (score[WAZAARI_BLANC] == 1) {
@@ -499,11 +518,11 @@ public class MainActivity extends AppCompatActivity {
 
                         // Update display
                         chronoBtn[WHITE].setText(getResources().getString(R.string.java_time));
-                        chronoBtn[WHITE].setTextColor(getResources().getColor(R.color.colorAccent));
+                        chronoBtn[WHITE].setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccent));
 
                         chronoBtn[MAIN].setText(getResources().getString(R.string.java_ippon));
-                        chronoBtn[MAIN].setBackgroundColor(getResources().getColor(R.color.white));
-                        chronoBtn[MAIN].setTextColor(getResources().getColor(R.color.colorAccent));
+                        chronoBtn[MAIN].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
+                        chronoBtn[MAIN].setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccent));
 
                         //Play sound
                         soundPool.play(clocheFin, 1, 1, 1, 0, 1);
@@ -519,7 +538,7 @@ public class MainActivity extends AppCompatActivity {
                 }.start();
                 // Counter is running
                 setSolBlanc = true;
-                chronoBtn[WHITE].setTextColor(getResources().getColor(R.color.brown));
+                chronoBtn[WHITE].setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.brown));
 
                 // Hide Reset SOL
                 resetBtn[MAIN].setVisibility(View.GONE);
@@ -531,7 +550,7 @@ public class MainActivity extends AppCompatActivity {
                 setSolBlanc = false;
 
                 // Update display
-                chronoBtn[WHITE].setTextColor(getResources().getColor(R.color.colorAccent));
+                chronoBtn[WHITE].setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccent));
 
                 // Display Reset
                 resetBtn[WHITE].setVisibility(View.VISIBLE);
@@ -541,7 +560,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     // Slip LONG into MIN and SEC
-    public void afficherMinute(long a) {
+    private void afficherMinute(long a) {
         sec = (int) a / 1000;
         min = 0;
         while (sec >= 60) {
@@ -579,8 +598,8 @@ public class MainActivity extends AppCompatActivity {
             setText(RED);
             setText(WHITE);
 
-            chronoBtn[MAIN].setBackgroundColor(getResources().getColor(R.color.colorAccent));
-            chronoBtn[MAIN].setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+            chronoBtn[MAIN].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccent));
+            chronoBtn[MAIN].setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimaryDark));
 
             // Hide Reset
             for (ImageButton btn : resetBtn) {
@@ -612,7 +631,7 @@ public class MainActivity extends AppCompatActivity {
 
             // Update display and color
             setText(RED);
-            chronoBtn[RED].setTextColor((getResources().getColor(R.color.colorAccent)));
+            chronoBtn[RED].setTextColor((ContextCompat.getColor(getApplicationContext(), R.color.colorAccent)));
 
             // Hide Reset
             resetBtn[RED].setVisibility(View.GONE);
@@ -631,7 +650,7 @@ public class MainActivity extends AppCompatActivity {
 
             // Update display et la couleur
             setText(WHITE);
-            chronoBtn[WHITE].setTextColor((getResources().getColor(R.color.colorAccent)));
+            chronoBtn[WHITE].setTextColor((ContextCompat.getColor(getApplicationContext(), R.color.colorAccent)));
 
             // Hide Reset
             resetBtn[WHITE].setVisibility(View.GONE);
@@ -639,7 +658,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Change counter text
-    public void setText(int test) {
+    @SuppressLint("SetTextI18n")
+    private void setText(int test) {
         if (test == MAIN) {
             afficherMinute(general);
             chronoBtn[MAIN].setText(min + ":" + format.format(sec));
